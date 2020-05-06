@@ -1,0 +1,41 @@
+{
+    "name": "xiaohuilam/laravel-admin-select2",
+    "description": "Laravel-admin select2",
+    "type": "library",
+    "license": "MIT",
+    "authors": [{"name": "Xiaohui Lam", "email": "xiaohui.lam@aliyun.com"}],
+    "homepage": "https://github.com/xiaohuilam/laravel-admin-select2",
+    "readme": "https://github.com/xiaohuilam/laravel-admin-select2#laravel-admin-select2-extension",
+    "keywords": ["laravel admin", "laravel admin extension", "select2", "morph select"],
+    "require": {
+        "encore/laravel-admin": ">=1.6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "<8.0",
+        "laravel/laravel": ">=5.5",
+        "fzaninotto/faker": "~1.4",
+        "laravel/browser-kit-testing": "<=v4.2.1",
+        "squizlabs/php_codesniffer": "3.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaravelAdminExt\\Select2\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaravelAdminExt\\Select2\\Test\\": "tests/"
+        },
+        "files": [
+            "vendor/encore/laravel-admin/tests/TestCase.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelAdminExt\\Select2\\Select2ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable"
+}
