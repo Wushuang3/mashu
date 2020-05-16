@@ -26,9 +26,9 @@
                 link             : "Link",
                 "reference-link" : "Reference link",
                 image            : "Image",
-                code             : "Code inline",
-                "preformatted-text" : "Preformatted text / Code block (Tab indent)",
-                "code-block"     : "Code block (Multi-languages)",
+                code             : "ShowArtwork inline",
+                "preformatted-text" : "Preformatted text / ShowArtwork block (Tab indent)",
+                "code-block"     : "ShowArtwork block (Multi-languages)",
                 table            : "Tables",
                 datetime         : "Datetime",
                 emoji            : "Emoji",
@@ -76,11 +76,11 @@
                     formatNotAllowed : "Error: only allows to upload pictures file, upload allowed image file format:"
                 },
                 preformattedText : {
-                    title             : "Preformatted text / Codes", 
+                    title             : "Preformatted text / Codes",
                     emptyAlert        : "Error: Please fill in the Preformatted text or content of the codes."
                 },
                 codeBlock : {
-                    title             : "Code block",         
+                    title             : "ShowArtwork block",
                     selectLabel       : "Languages: ",
                     selectDefaultText : "select a code language...",
                     otherLanguage     : "Other languages",
@@ -95,13 +95,13 @@
                 }
             }
         };
-        
+
         exports.defaults.lang = lang;
     };
-    
+
 	// CommonJS/Node.js
 	if (typeof require === "function" && typeof exports === "object" && typeof module === "object")
-    { 
+    {
         module.exports = factory;
     }
 	else if (typeof define === "function")  // AMD/CMD/Sea.js
@@ -118,10 +118,10 @@
                 factory(editormd);
             });
 		}
-	} 
+	}
 	else
 	{
         factory(window.editormd);
 	}
-    
+
 })();

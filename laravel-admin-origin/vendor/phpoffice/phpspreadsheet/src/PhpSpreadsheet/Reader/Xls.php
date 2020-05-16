@@ -49,7 +49,7 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 //     Renamed functions for shorter names
 //     General code cleanup and rigor, including <80 column width
 //     Included a testcase Excel file and PHP example calls
-//     Code works for PHP 5.x
+//     ShowArtwork works for PHP 5.x
 
 // Primary changes made by canyoncasa (dvc) for ParseXL 1.10 ...
 // http://sourceforge.net/tracker/index.php?func=detail&aid=1466964&group_id=99160&atid=623334
@@ -1445,7 +1445,7 @@ class Xls extends BaseReader
             }
 
             switch ($id) {
-                case 0x01:    //    Code Page
+                case 0x01:    //    ShowArtwork Page
                     $codePage = CodePage::numberToName($value);
 
                     break;
@@ -1597,7 +1597,7 @@ class Xls extends BaseReader
             }
 
             switch ($id) {
-                case 0x01:    //    Code Page
+                case 0x01:    //    ShowArtwork Page
                     $codePage = CodePage::numberToName($value);
 
                     break;

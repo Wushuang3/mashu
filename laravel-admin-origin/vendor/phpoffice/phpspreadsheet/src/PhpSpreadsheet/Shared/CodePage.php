@@ -7,14 +7,14 @@ use PhpOffice\PhpSpreadsheet\Exception as PhpSpreadsheetException;
 class CodePage
 {
     /**
-     * Convert Microsoft Code Page Identifier to Code Page Name which iconv
+     * Convert Microsoft ShowArtwork Page Identifier to ShowArtwork Page Name which iconv
      * and mbstring understands.
      *
-     * @param int $codePage Microsoft Code Page Indentifier
+     * @param int $codePage Microsoft ShowArtwork Page Indentifier
      *
      * @throws PhpSpreadsheetException
      *
-     * @return string Code Page Name
+     * @return string ShowArtwork Page Name
      */
     public static function numberToName($codePage)
     {
@@ -24,7 +24,7 @@ class CodePage
             case 437:
                 return 'CP437'; //    OEM US
             case 720:
-                throw new PhpSpreadsheetException('Code page 720 not supported.'); //    OEM Arabic
+                throw new PhpSpreadsheetException('ShowArtwork page 720 not supported.'); //    OEM Arabic
             case 737:
                 return 'CP737'; //    OEM Greek
             case 775:
@@ -126,7 +126,7 @@ class CodePage
             case 32768:
                 return 'MAC'; //    Apple Roman
             case 32769:
-                throw new PhpSpreadsheetException('Code page 32769 not supported.'); //    ANSI Latin I (BIFF2-BIFF3)
+                throw new PhpSpreadsheetException('ShowArtwork page 32769 not supported.'); //    ANSI Latin I (BIFF2-BIFF3)
             case 65000:
                 return 'UTF-7'; //    Unicode (UTF-7)
             case 65001:

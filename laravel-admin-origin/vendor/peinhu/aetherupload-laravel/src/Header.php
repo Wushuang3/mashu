@@ -20,21 +20,21 @@ class Header
     public function create()
     {
         if ( $this->disk->put($this->path, 0) === false ) {
-            throw new \Exception(trans('aetherupload::messages.create_header_fail'));
+            throw new \Exception(trans('upload::messages.create_header_fail'));
         }
     }
 
     public function write($content)
     {
         if ( $this->disk->put($this->path, $content) === false ) {
-            throw new \Exception(trans('aetherupload::messages.write_header_fail'));
+            throw new \Exception(trans('upload::messages.write_header_fail'));
         }
     }
 
     public function read()
     {
         if ( ($content = $this->disk->read($this->path)) === false ) {
-            throw new \Exception(trans('aetherupload::messages.read_header_fail'));
+            throw new \Exception(trans('upload::messages.read_header_fail'));
         }
 
         return $content;
@@ -43,7 +43,7 @@ class Header
     public function delete()
     {
         if ( $this->disk->delete($this->path) === false ) {
-            throw new \Exception(trans('aetherupload::messages.delete_header_fail'));
+            throw new \Exception(trans('upload::messages.delete_header_fail'));
         }
     }
 

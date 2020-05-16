@@ -56,7 +56,7 @@ module.exports = win;
   var setTimeoutFunc = setTimeout;
 
   function noop() {}
-  
+
   // Polyfill for Function.prototype.bind
   function bind(fn, thisArg) {
     return function () {
@@ -274,7 +274,7 @@ module.exports = win;
   Promise._setUnhandledRejectionFn = function _setUnhandledRejectionFn(fn) {
     Promise._unhandledRejectionFn = fn;
   };
-  
+
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = Promise;
   } else if (!root.Promise) {
@@ -4168,7 +4168,7 @@ var MediaElementPlayer = function () {
 								}
 							}, 20);
 						} catch (exp) {
-							
+
 						}
 					}
 
@@ -5854,7 +5854,7 @@ var PluginDetector = exports.PluginDetector = {
 					version = axDetect(ax);
 				}
 			} catch (e) {
-				
+
 			}
 		}
 		return version;
@@ -5925,7 +5925,7 @@ var FlashMediaElementRenderer = {
 					try {
 						flash.flashApi['set_' + propName](value);
 					} catch (e) {
-						
+
 					}
 				} else {
 					flash.flashApiStack.push({
@@ -5950,10 +5950,10 @@ var FlashMediaElementRenderer = {
 							try {
 								flash.flashApi['fire_' + methodName]();
 							} catch (e) {
-								
+
 							}
 						} else {
-							
+
 						}
 					} else {
 						flash.flashApiStack.push({
@@ -7170,7 +7170,7 @@ var YouTubeIframeRenderer = {
 							mediaElement.dispatchEvent(event);
 							break;
 						default:
-							
+
 							break;
 					}
 				} else {
@@ -7227,7 +7227,7 @@ var YouTubeIframeRenderer = {
 					message = 'Unknown error.';
 					break;
 			}
-			mediaElement.generateError('Code ' + error.data + ': ' + message, mediaFiles);
+			mediaElement.generateError('ShowArtwork ' + error.data + ': ' + message, mediaFiles);
 		};
 
 		var youtubeContainer = _document2.default.createElement('div');

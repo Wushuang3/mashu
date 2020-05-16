@@ -67,14 +67,14 @@ class NumberFormat extends Supervisor
     protected static $flippedBuiltInFormats;
 
     /**
-     * Format Code.
+     * Format ShowArtwork.
      *
      * @var string
      */
     protected $formatCode = self::FORMAT_GENERAL;
 
     /**
-     * Built-in format Code.
+     * Built-in format ShowArtwork.
      *
      * @var string
      */
@@ -155,7 +155,7 @@ class NumberFormat extends Supervisor
     }
 
     /**
-     * Get Format Code.
+     * Get Format ShowArtwork.
      *
      * @return string
      */
@@ -172,7 +172,7 @@ class NumberFormat extends Supervisor
     }
 
     /**
-     * Set Format Code.
+     * Set Format ShowArtwork.
      *
      * @param string $pValue see self::FORMAT_*
      *
@@ -195,7 +195,7 @@ class NumberFormat extends Supervisor
     }
 
     /**
-     * Get Built-In Format Code.
+     * Get Built-In Format ShowArtwork.
      *
      * @return int
      */
@@ -209,7 +209,7 @@ class NumberFormat extends Supervisor
     }
 
     /**
-     * Set Built-In Format Code.
+     * Set Built-In Format ShowArtwork.
      *
      * @param int $pValue
      *

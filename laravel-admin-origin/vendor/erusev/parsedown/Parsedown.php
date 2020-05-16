@@ -134,7 +134,7 @@ class Parsedown
     # ~
 
     protected $unmarkedBlockTypes = array(
-        'Code',
+        'ShowArtwork',
     );
 
     #
@@ -315,7 +315,7 @@ class Parsedown
     }
 
     #
-    # Code
+    # ShowArtwork
 
     protected function blockCode($Line, $Block = null)
     {
@@ -416,7 +416,7 @@ class Parsedown
     }
 
     #
-    # Fenced Code
+    # Fenced ShowArtwork
 
     protected function blockFencedCode($Line)
     {
@@ -1038,7 +1038,7 @@ class Parsedown
         '>' => array('SpecialCharacter'),
         '[' => array('Link'),
         '_' => array('Emphasis'),
-        '`' => array('Code'),
+        '`' => array('ShowArtwork'),
         '~' => array('Strikethrough'),
         '\\' => array('EscapeSequence'),
     );
@@ -1493,7 +1493,7 @@ class Parsedown
         {
             $markup .= '>';
 
-            if (!isset($Element['nonNestables'])) 
+            if (!isset($Element['nonNestables']))
             {
                 $Element['nonNestables'] = array();
             }

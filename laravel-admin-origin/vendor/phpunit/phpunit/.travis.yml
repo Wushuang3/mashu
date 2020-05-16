@@ -50,14 +50,14 @@ notifications:
 
 jobs:
   include:
-    - stage: "Static Code Analysis"
+    - stage: "Static ShowArtwork Analysis"
       php: 7.3
       env: php-cs-fixer
       install:
         - phpenv config-rm xdebug.ini
       script:
         - ./tools/php-cs-fixer fix --dry-run -v --show-progress=dots --diff-format=udiff
-    - stage: "Static Code Analysis"
+    - stage: "Static ShowArtwork Analysis"
       php: 7.3
       env: psalm
       install:
@@ -66,7 +66,7 @@ jobs:
         - travis_retry ./tools/composer update $DEFAULT_COMPOSER_FLAGS
         - ./tools/psalm --config=.psalm/static-analysis.xml --no-progress
         - ./tools/psalm --config=.psalm/config.xml --no-progress --shepherd --stats
-    - stage: "Static Code Analysis"
+    - stage: "Static ShowArtwork Analysis"
       php: 7.3
       env: roave-backward-compatibility-check
       install:

@@ -5,7 +5,7 @@ namespace Doctrine\DBAL\Sharding;
 use Doctrine\DBAL\DBALException;
 
 /**
- * Sharding related Exceptions
+ * Sharding related Extensions
  */
 class ShardingException extends DBALException
 {

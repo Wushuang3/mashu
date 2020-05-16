@@ -10,7 +10,7 @@ class Text extends \Faker\Provider\Text
 
         return iconv('UTF-8', 'UTF-8//IGNORE', $realText);
     }
-    
+
     /**
      * From ru.wikisource.org
      *
@@ -4206,7 +4206,7 @@ EOT;
     /*
     *** START: FULL LICENSE ***
 
-    Creative Commons Legal Code
+    Creative Commons Legal ShowArtwork
 
     Attribution-ShareAlike 3.0 Unported
 

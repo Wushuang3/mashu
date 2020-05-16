@@ -2257,9 +2257,9 @@ class Text extends \Faker\Provider\Text
 EOT;
     /*
     *** START: FULL LICENSE ***
-        Creative Commons Legal Code
+        Creative Commons Legal ShowArtwork
         Attribution-ShareAlike 3.0 Unported
-    
+
     CREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE
     LEGAL SERVICES. DISTRIBUTION OF THIS LICENSE DOES NOT CREATE AN
     ATTORNEY-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS

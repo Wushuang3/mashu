@@ -56,8 +56,8 @@ interface Listener
      *
      * Return a new string to override or rewrite user code.
      *
-     * Note that this is run *after* the Code Cleaner, so if you return invalid
-     * or unsafe PHP here, it'll be executed without any of the safety Code
+     * Note that this is run *after* the ShowArtwork Cleaner, so if you return invalid
+     * or unsafe PHP here, it'll be executed without any of the safety ShowArtwork
      * Cleaner provides. This comes with the big kid warranty :)
      *
      * @param Shell  $shell

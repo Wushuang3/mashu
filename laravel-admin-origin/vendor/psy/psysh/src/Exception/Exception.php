@@ -12,7 +12,7 @@
 namespace Psy\Exception;
 
 /**
- * An interface for Psy Exceptions.
+ * An interface for Psy Extensions.
  */
 interface Exception
 {

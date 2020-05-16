@@ -6,7 +6,7 @@
   <title>{{config('admin.title')}} | {{ trans('admin.login') }}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  
+
   @if(!is_null($favicon = Admin::favicon()))
   <link rel="shortcut icon" href="{{$favicon}}">
   @endif
@@ -85,9 +85,8 @@
 <!-- /.login-box -->
 
 <!-- jQuery 2.1.4 -->
-<script src="{{ admin_asset("vendor/laravel-admin/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js")}} "></script>
-<!-- Bootstrap 3.3.5 -->
-<script src="{{ admin_asset("vendor/laravel-admin/AdminLTE/bootstrap/js/bootstrap.min.js")}}"></script>
+<script src="{{ admin_asset("jQuery-2.1.4.min.js")}} "></script>
+<!-- BjQuery-2.1.4.min111.js<script src="{{ admin_asset("vendor/laravel-admin/AdminLTE/bootstrap/js/bootstrap.min.js")}}"></script>
 <!-- iCheck -->
 <script src="{{ admin_asset("vendor/laravel-admin/AdminLTE/plugins/iCheck/icheck.min.js")}}"></script>
 <script>

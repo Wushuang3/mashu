@@ -74,7 +74,7 @@ var vimeoIframeRenderer = {
 		vimeo.mediaElement = mediaElement;
 
 		var errorHandler = function errorHandler(error) {
-			mediaElement.generateError('Code ' + error.name + ': ' + error.message, mediaFiles);
+			mediaElement.generateError('ShowArtwork ' + error.name + ': ' + error.message, mediaFiles);
 		};
 
 		var props = mejs.html5media.properties,
@@ -196,7 +196,7 @@ var vimeoIframeRenderer = {
 							mediaElement.dispatchEvent(event);
 							break;
 						default:
-							
+
 							break;
 					}
 				} else {

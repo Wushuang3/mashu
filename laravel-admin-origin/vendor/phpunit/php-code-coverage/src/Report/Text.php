@@ -149,13 +149,13 @@ final class Text
         $padding = \max(\array_map('strlen', [$classes, $methods, $lines]));
 
         if ($this->showOnlySummary) {
-            $title   = 'Code Coverage Report Summary:';
+            $title   = 'ShowArtwork Coverage Report Summary:';
             $padding = \max($padding, \strlen($title));
 
             $output .= $this->format($colors['header'], $padding, $title);
         } else {
             $date  = \date('  Y-m-d H:i:s', $_SERVER['REQUEST_TIME']);
-            $title = 'Code Coverage Report:';
+            $title = 'ShowArtwork Coverage Report:';
 
             $output .= $this->format($colors['header'], $padding, $title);
             $output .= $this->format($colors['header'], $padding, $date);

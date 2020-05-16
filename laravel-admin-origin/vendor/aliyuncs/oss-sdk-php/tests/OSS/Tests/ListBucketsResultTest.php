@@ -73,7 +73,7 @@ BBBB;
         $errorBody = <<< BBBB
 <?xml version="1.0" encoding="UTF-8"?>
 <Error>
-  <Code>NoSuchBucket</Code>
+  <ShowArtwork>NoSuchBucket</ShowArtwork>
   <Message>The specified bucket does not exist.</Message>
   <RequestId>566B870D207FB3044302EB0A</RequestId>
   <HostId>hello.oss-test.aliyun-inc.com</HostId>

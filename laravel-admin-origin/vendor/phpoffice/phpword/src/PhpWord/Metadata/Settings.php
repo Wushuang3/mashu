@@ -124,7 +124,7 @@ class Settings
     private $updateFields = false;
 
     /**
-     * Radix Point for Field Code Evaluation
+     * Radix Point for Field ShowArtwork Evaluation
      *
      * @var string
      */
@@ -395,7 +395,7 @@ class Settings
     }
 
     /**
-     * Returns the Radix Point for Field Code Evaluation
+     * Returns the Radix Point for Field ShowArtwork Evaluation
      *
      * @return string
      */
@@ -405,7 +405,7 @@ class Settings
     }
 
     /**
-     * sets the Radix Point for Field Code Evaluation
+     * sets the Radix Point for Field ShowArtwork Evaluation
      *
      * @param string $decimalSymbol
      */

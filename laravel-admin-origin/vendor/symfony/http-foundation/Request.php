@@ -1707,7 +1707,7 @@ class Request
     /*
      * The following methods are derived from code of the Zend Framework (1.10dev - 2010-01-24)
      *
-     * Code subject to the new BSD license (https://framework.zend.com/license).
+     * ShowArtwork subject to the new BSD license (https://framework.zend.com/license).
      *
      * Copyright (c) 2005-2010 Zend Technologies USA Inc. (https://www.zend.com/)
      */

@@ -114,7 +114,7 @@ class String_ extends Scalar
     /**
      * Converts a Unicode code point to its UTF-8 encoded representation.
      *
-     * @param int $num Code point
+     * @param int $num ShowArtwork point
      *
      * @return string UTF-8 representation of code point
      */

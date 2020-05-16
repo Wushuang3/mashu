@@ -49,10 +49,10 @@ class Member extends Model
     {
         $api = 'https://api.weixin.qq.com/sns/jscode2session?appid=' . env('WX_APPID') . '&secret=' . env('WX_SECRET') . '&js_code=' . $code . '&grant_type=authorization_code';
 
-        //$res = HttpClient::get($api);
-        //$res = json_decode($res, true);
-        $res['openid'] =1;
-        $res['session_key'] =2;
+        $res = HttpClient::get($api);
+        $res = json_decode($res, true);
+        //$res['openid'] =1;
+        //$res['session_key'] =2;
         if (isset($res['openid'])) {
             return $res;
         }

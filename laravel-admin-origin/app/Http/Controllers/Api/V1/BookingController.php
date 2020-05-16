@@ -27,14 +27,37 @@ class BookingController extends Controller
      */
     public function getTeacher(Request $request)
     {
-        $token = $request->input('token');
-        $user_id = Helpers::getUserIdByToken($token);
-        if (empty($user_id)) return Code::setCode(Code::TOKEN_ERROR, 'token验证失败', '', '');
-        $res = Teacher::all();
+        //$token = $request->input('token');
+        // $user_id = Helpers::getUserIdByToken($token);
+        //if (empty($user_id)) return Code::setCode(Code::TOKEN_ERROR, 'token验证失败', '', '');
+        //level name
+        $level = $request->input('level');
+        $name = $request->input('name');
+
+        $teachers = Teacher::where('id','>',0);
+
+        if($level){
+            $teachers->where(['level' => $level]);
+        }
+
+        if($name){
+            $users = Member::select('id')->where(['name'=>$name])->get();
+
+            if($users){
+                $id_arr = array();
+                foreach ($users as $v){
+                    $id_arr[] = $v['id'];
+                }
+                $teachers-> whereIn('user_id', [$id_arr]);
+            }
+        }
+
+        $res = $teachers->get();
         $teachers = Member::findManagerByTeacher();
 
         foreach ($res as $k => $v) {
             $res[$k]->name = empty($v->user_id) ? '' : $teachers[$v->user_id];
+            $res[$k]->head_icon = env('APP_URL') . '/storage/' .$v->head_icon;
         }
         return Code::setCode(Code::SUCC, '', $res);
     }
@@ -55,7 +78,9 @@ class BookingController extends Controller
         if (empty($teacher_id)) return Code::setCode(Code::ERR_TEACHER_ID, '教师ID错误', '', '');
         if (empty($time)) return Code::setCode(Code::ERR_TIME, '预约时间错误', '', '');
         $res = SetClass::where(['teacher' => $teacher_id, 'time' => $time])->get();
-        $data = array();
+        $data['num'] = array();
+        $data['total'] = array();
+        $data['hour'] = array();
 
         if ($res) {
             foreach ($res as $k => $v) {
@@ -493,6 +518,7 @@ class BookingController extends Controller
         $detail['level'] = $teacher->level;
         $detail['description'] = $teacher->description;
         $num = $good = $middle = $bad = $score = 0;
+        $count = count($rating);
         foreach ($rating as $k => $v) {
             $num = $k;
             $score += $v->score;
@@ -507,11 +533,14 @@ class BookingController extends Controller
             }
         }
 
-        $detail['score'] = empty($score) ? 0 : intval($score / 2)/10;
+        $attention= Attention::where(['user_id' => $user_id,'teacher_id'=>$teacher_id,'is_del'=>0])->first();
+        $detail['score'] = empty($score) ? 0 : intval($score / $count)/10;
         $detail['total'] = $num;
         $detail['good'] = empty($num) ? 0 : $good/$num;
         $detail['middle'] = empty($num) ? 0 : $middle/$num;
         $detail['bad'] = empty($num) ? 0 : $bad/$num;
+        $detail['head_icon'] = env('APP_URL') . '/storage/' .$detail["head_icon"];
+        $detail['is_attention'] = empty($attention) ? 1 : 0;
 
         return Code::setCode(Code::SUCC, '成功', $detail);
     }

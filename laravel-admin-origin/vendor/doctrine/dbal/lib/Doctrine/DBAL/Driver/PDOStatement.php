@@ -106,7 +106,7 @@ class PDOStatement extends \PDOStatement implements Statement
         try {
             return parent::closeCursor();
         } catch (\PDOException $exception) {
-            // Exceptions not allowed by the interface.
+            // Extensions not allowed by the interface.
             // In case driver implementations do not adhere to the interface, silence exceptions here.
             return true;
         }

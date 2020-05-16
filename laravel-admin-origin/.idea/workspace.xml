@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1449349b-5c7b-46e6-a0dd-b9173dd5eb90" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1449349b-5c7b-46e6-a0dd-b9173dd5eb90" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +43,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vendor/encore/laravel-admin/resources/views/partials/footer.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="450">
+              <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -367,24 +364,6 @@
               <item name="laravel-admin-origin" type="b2602c69:ProjectViewProjectNode" />
               <item name="laravel-admin-origin" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="laravel-admin-origin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-admin-origin" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="laravel-admin-origin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-admin-origin" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="framework" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="laravel-admin-origin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-admin-origin" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="framework" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -441,12 +420,12 @@
       <updated>1587979175445</updated>
       <workItem from="1587979176611" duration="119385000" />
       <workItem from="1588560047176" duration="7182000" />
-      <workItem from="1588734698953" duration="8002000" />
+      <workItem from="1588734698953" duration="8608000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134569000" />
+    <option name="totallyTimeSpent" value="135175000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -459,7 +438,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="28" width="1920" height="1018" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2803437" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -807,8 +785,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/encore/laravel-admin/resources/views/partials/footer.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="450">
+          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
         </state>
       </provider>
     </entry>

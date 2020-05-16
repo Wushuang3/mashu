@@ -101,7 +101,7 @@ class Person extends \Faker\Provider\Person
     );
 
     /**
-     * Personal Numerical Code (CNP)
+     * Personal Numerical ShowArtwork (CNP)
      *
      * @link http://ro.wikipedia.org/wiki/Cod_numeric_personal
      * @example 1111111111118
@@ -218,7 +218,7 @@ class Person extends \Faker\Provider\Person
     }
 
     /**
-     * Calculates a checksum for the Personal Numerical Code (CNP).
+     * Calculates a checksum for the Personal Numerical ShowArtwork (CNP).
      *
      * @param string $value 12 digit CNP
      * @return int checksum digit

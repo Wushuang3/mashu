@@ -73,11 +73,11 @@
   MT("trailingSpace4",
      "foo[trailing-space-a  ][trailing-space-b  ][trailing-space-a  ][trailing-space-new-line  ]");
 
-  // Code blocks using 4 spaces (regardless of CodeMirror.tabSize value)
+  // ShowArtwork blocks using 4 spaces (regardless of CodeMirror.tabSize value)
   MT("codeBlocksUsing4Spaces",
      "    [comment foo]");
 
-  // Code blocks using 4 spaces with internal indentation
+  // ShowArtwork blocks using 4 spaces with internal indentation
   MT("codeBlocksUsing4SpacesIndentation",
      "    [comment bar]",
      "        [comment hello]",
@@ -85,14 +85,14 @@
      "    [comment foo]",
      "bar");
 
-  // Code blocks using 4 spaces with internal indentation
+  // ShowArtwork blocks using 4 spaces with internal indentation
   MT("codeBlocksUsing4SpacesIndentation",
      " foo",
      "    [comment bar]",
      "        [comment hello]",
      "    [comment world]");
 
-  // Code blocks should end even after extra indented lines
+  // ShowArtwork blocks should end even after extra indented lines
   MT("codeBlocksWithTrailingIndentedLine",
      "    [comment foo]",
      "        [comment bar]",
@@ -100,7 +100,7 @@
      "    ",
      "hello");
 
-  // Code blocks using 1 tab (regardless of CodeMirror.indentWithTabs value)
+  // ShowArtwork blocks using 1 tab (regardless of CodeMirror.indentWithTabs value)
   MT("codeBlocksUsing1Tab",
      "\t[comment foo]");
 
@@ -379,7 +379,7 @@
      "",
      "    [variable-2&quote&quote-1 > hello]");
 
-  // Code block
+  // ShowArtwork block
   MT("blockquoteCode",
      "[variable-2 * foo]",
      "",
@@ -389,7 +389,7 @@
      "",
      "    [variable-2 world]");
 
-  // Code block followed by text
+  // ShowArtwork block followed by text
   MT("blockquoteCodeText",
      "[variable-2 * foo]",
      "",
@@ -444,7 +444,7 @@
      "",
      "            [comment hello]");
 
-  // Code with internal indentation
+  // ShowArtwork with internal indentation
   MT("listCodeIndentation",
      "[variable-2 * foo]",
      "",
@@ -470,7 +470,7 @@
     "      [variable-3 * foo]"
   );
 
-  // Code followed by text
+  // ShowArtwork followed by text
   MT("listCodeText",
      "[variable-2 * foo]",
      "",

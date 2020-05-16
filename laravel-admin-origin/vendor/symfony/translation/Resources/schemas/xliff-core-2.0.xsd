@@ -284,7 +284,7 @@
   <!-- Inline Elements -->
 
   <xs:element name="cp">
-    <!-- Code Point -->
+    <!-- ShowArtwork Point -->
     <xs:complexType mixed="false">
       <xs:attribute name="hex" use="required" type="xs:hexBinary"/>
     </xs:complexType>
@@ -309,7 +309,7 @@
   </xs:element>
 
   <xs:element name="pc">
-    <!-- Paired Code -->
+    <!-- Paired ShowArtwork -->
     <xs:complexType mixed="true">
       <xs:group ref="xlf:inline" minOccurs="0" maxOccurs="unbounded"/>
       <xs:attribute name="canCopy" use="optional" type="xlf:yesNo" default="yes"/>
@@ -334,7 +334,7 @@
   </xs:element>
 
   <xs:element name="sc">
-    <!-- Start Code -->
+    <!-- Start ShowArtwork -->
     <xs:complexType mixed="false">
       <xs:attribute name="canCopy" use="optional" type="xlf:yesNo" default="yes"/>
       <xs:attribute name="canDelete" use="optional" type="xlf:yesNo" default="yes"/>
@@ -355,7 +355,7 @@
   </xs:element>
 
   <xs:element name="ec">
-    <!-- End Code -->
+    <!-- End ShowArtwork -->
     <xs:complexType mixed="false">
       <xs:attribute name="canCopy" use="optional" type="xlf:yesNo" default="yes"/>
       <xs:attribute name="canDelete" use="optional" type="xlf:yesNo" default="yes"/>

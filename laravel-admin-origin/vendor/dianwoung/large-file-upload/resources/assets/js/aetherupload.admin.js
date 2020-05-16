@@ -42,7 +42,7 @@ var AetherUpload = {
 
             this.messages = this.getLocalizedMessages(),
 
-            this.storageHost = $('#aetherupload-storage-host').length ? $('#aetherupload-storage-host').val() : '';
+            this.storageHost = $('#upload-storage-host').length ? $('#upload-storage-host').val() : '';
 
         if (!this.blobSlice) {
 
@@ -462,15 +462,15 @@ function aetherupload(name, resource) {
 
     var newInstance = Object.create(AetherUpload);
 
-    newInstance.wrapperDom = $(resource).parents('#aetherupload-wrapper-'+name);
+    newInstance.wrapperDom = $(resource).parents('#upload-wrapper-'+name);
 
     newInstance.group = 'file'; //分组的默认值
 
     newInstance.savedPathDom = newInstance.wrapperDom.find('#'+name+'-savedpath'); //资源储存地址所在节点的默认值
 
-    newInstance.preprocessRoute = '/aetherupload/preprocess'; //预处理路由的默认值
+    newInstance.preprocessRoute = '/upload/preprocess'; //预处理路由的默认值
 
-    newInstance.uploadingRoute = '/aetherupload/uploading'; //上传路由的默认值
+    newInstance.uploadingRoute = '/upload/uploading'; //上传路由的默认值
 
     newInstance.laxMode = false; //宽松模式
 

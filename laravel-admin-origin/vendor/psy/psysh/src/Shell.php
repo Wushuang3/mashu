@@ -706,7 +706,7 @@ class Shell extends Application
     public function addCode($code, $silent = false)
     {
         try {
-            // Code lines ending in \ keep the buffer open
+            // ShowArtwork lines ending in \ keep the buffer open
             if (\substr(\rtrim($code), -1) === '\\') {
                 $this->codeBufferOpen = true;
                 $code = \substr(\rtrim($code), 0, -1);
@@ -980,7 +980,7 @@ class Shell extends Application
     /**
      * Renders a caught Exception.
      *
-     * Exceptions are formatted according to severity. ErrorExceptions which were
+     * Extensions are formatted according to severity. ErrorExceptions which were
      * warnings or Strict errors aren't rendered as harshly as real errors.
      *
      * Stores $e as the last Exception in the Shell Context.

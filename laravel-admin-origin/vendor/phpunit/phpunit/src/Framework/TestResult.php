@@ -91,7 +91,7 @@ final class TestResult implements Countable
     private $topTestSuite;
 
     /**
-     * Code Coverage information.
+     * ShowArtwork Coverage information.
      *
      * @var CodeCoverage
      */

@@ -495,7 +495,7 @@ class Spreadsheet
     }
 
     /**
-     * Code to execute when this worksheet is unset().
+     * ShowArtwork to execute when this worksheet is unset().
      */
     public function __destruct()
     {

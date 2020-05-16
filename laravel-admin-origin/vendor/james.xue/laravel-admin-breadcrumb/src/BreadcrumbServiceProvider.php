@@ -17,7 +17,7 @@ class BreadcrumbServiceProvider extends ServiceProvider
         }
 
         if ($this->app->runningInConsole()) {
-            $this->publishes([__DIR__.'/../resources/views/content.blade.php' => resource_path('views/admin/content.blade.php')],'breadcrumb');
+            $this->publishes([__DIR__.'/../resources/views/content.blade.php' => resource_path('views/admin/gender.blade.php')],'breadcrumb');
             $this->publishes([__DIR__.'/../config/breadcurmb.php' => config_path('breadcurmb.php')],'breadcrumb');
         }
 

@@ -53,7 +53,7 @@
 
     </div>
 </div>
-<script src="{{ URL::asset('vendor/aetherupload/js/spark-md5.min.js') }}"></script><!--（可选）需要引入spark-md5.min.js，用以支持秒传功能-->
+<script src="{{ URL::asset('upload') }}"></script><!--（可选）需要引入spark-md5.min.js，用以支持秒传功能-->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!--需要引入jquery-->
 <script src="{{ URL::asset('vendor/aetherupload/js/aetherupload.js') }}"></script><!--需要引入aetherupload.js-->
 <script>

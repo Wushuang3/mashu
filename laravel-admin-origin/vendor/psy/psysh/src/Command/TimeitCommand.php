@@ -60,7 +60,7 @@ class TimeitCommand extends Command
             ->setName('timeit')
             ->setDefinition([
                 new InputOption('num', 'n', InputOption::VALUE_REQUIRED, 'Number of iterations.'),
-                new CodeArgument('code', CodeArgument::REQUIRED, 'Code to execute.'),
+                new CodeArgument('code', CodeArgument::REQUIRED, 'ShowArtwork to execute.'),
             ])
             ->setDescription('Profiles with a timer.')
             ->setHelp(

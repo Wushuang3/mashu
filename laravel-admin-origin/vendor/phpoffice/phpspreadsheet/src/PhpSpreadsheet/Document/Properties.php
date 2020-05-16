@@ -547,7 +547,7 @@ class Properties
 
                 break;
             case 'cy':       //    Currency
-            case 'error':    //    Error Status Code
+            case 'error':    //    Error Status ShowArtwork
             case 'vector':   //    Vector
             case 'array':    //    Array
             case 'blob':     //    Binary Blob
@@ -607,7 +607,7 @@ class Properties
 
                 break;
             case 'cy':       //    Currency
-            case 'error':    //    Error Status Code
+            case 'error':    //    Error Status ShowArtwork
             case 'vector':   //    Vector
             case 'array':    //    Array
             case 'blob':     //    Binary Blob

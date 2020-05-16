@@ -390,7 +390,7 @@ class EigenvalueDecomposition
     /**
      * Nonsymmetric reduction from Hessenberg to real Schur form.
      *
-     *    Code is derived from the Algol procedure hqr2,
+     *    ShowArtwork is derived from the Algol procedure hqr2,
      *    by Martin and Wilkinson, Handbook for Auto. Comp.,
      *    Vol.ii-Linear Algebra, and the corresponding
      * Fortran subroutine in EISPACK.

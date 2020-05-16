@@ -199,7 +199,7 @@ class TokenStream
      * @param int $to     Token end position (exclusive)
      * @param int $indent By how much the code should be indented (can be negative as well)
      *
-     * @return string Code corresponding to token range, adjusted for indentation
+     * @return string ShowArtwork corresponding to token range, adjusted for indentation
      */
     public function getTokenCode(int $from, int $to, int $indent) : string {
         $tokens = $this->tokens;

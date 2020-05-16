@@ -930,7 +930,7 @@ echo $faker->cellNumber; // "021 123 4567"
 // Generates a toll free number
 echo $faker->tollFreeNumber; // "0800 123 456"
 
-// Area Code
+ShowArtwork
 echo $faker->areaCode; // "03"
 ```
 
@@ -1349,7 +1349,7 @@ echo $faker->bankAccountNumber; // "1234567890123456"
 // Generates a random Malaysian insurance company
 echo $faker->insurance; // "AIA Malaysia"
 
-// Generates a random Malaysian bank SWIFT Code
+ShowArtwork
 echo $faker->swiftCode; // "MBBEMYKLXXX"
 ```
 
@@ -1604,7 +1604,7 @@ echo $faker->bank; // "ОТП Банк"
 //Generate a Russian Tax Payment Number for Company
 echo $faker->inn; //  7813540735
 
-//Generate a Russian Tax Code for Company
+ShowArtwork
 echo $faker->kpp; // 781301001
 ```
 

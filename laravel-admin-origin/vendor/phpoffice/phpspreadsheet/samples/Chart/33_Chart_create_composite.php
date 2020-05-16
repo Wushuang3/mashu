@@ -34,7 +34,7 @@ $worksheet->fromArray(
 // Set the Labels for each data series we want to plot
 //     Datatype
 //     Cell reference for data
-//     Format Code
+//     Format ShowArtwork
 //     Number of datapoints in series
 //     Data values
 //     Data Marker
@@ -51,7 +51,7 @@ $dataSeriesLabels3 = [
 // Set the X-Axis Labels
 //     Datatype
 //     Cell reference for data
-//     Format Code
+//     Format ShowArtwork
 //     Number of datapoints in series
 //     Data values
 //     Data Marker
@@ -62,7 +62,7 @@ $xAxisTickValues = [
 // Set the Data values for each data series we want to plot
 //     Datatype
 //     Cell reference for data
-//     Format Code
+//     Format ShowArtwork
 //     Number of datapoints in series
 //     Data values
 //     Data Marker
@@ -86,7 +86,7 @@ $series1->setPlotDirection(DataSeries::DIRECTION_COL);
 // Set the Data values for each data series we want to plot
 //     Datatype
 //     Cell reference for data
-//     Format Code
+//     Format ShowArtwork
 //     Number of datapoints in series
 //     Data values
 //     Data Marker
@@ -107,7 +107,7 @@ $series2 = new DataSeries(
 // Set the Data values for each data series we want to plot
 //     Datatype
 //     Cell reference for data
-//     Format Code
+//     Format ShowArtwork
 //     Number of datapoints in series
 //     Data values
 //     Data Marker

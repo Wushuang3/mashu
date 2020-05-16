@@ -56,7 +56,7 @@ class ThrowUpExceptionTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage throw-up can only throw Exceptions and Errors
+     * @expectedExceptionMessage throw-up can only throw Extensions and Errors
      */
     public function testFromThrowableThrowsError()
     {

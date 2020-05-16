@@ -11,7 +11,7 @@ class PublishCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'aetherupload:publish';
+    protected $signature = 'upload:publish';
 
     /**
      * The console command description.

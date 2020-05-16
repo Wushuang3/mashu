@@ -49,7 +49,7 @@ class ThrowUpException extends \Exception implements Exception
         }
 
         if (!$throwable instanceof \Exception) {
-            throw new \InvalidArgumentException('throw-up can only throw Exceptions and Errors');
+            throw new \InvalidArgumentException('throw-up can only throw Extensions and Errors');
         }
 
         return new self($throwable);

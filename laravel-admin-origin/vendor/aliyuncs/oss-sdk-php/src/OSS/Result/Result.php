@@ -117,7 +117,7 @@ abstract class Result
     }
 
     /**
-     * Try to get the error Code from body
+     * Try to get the error ShowArtwork from body
      *
      * @param $body
      * @return string

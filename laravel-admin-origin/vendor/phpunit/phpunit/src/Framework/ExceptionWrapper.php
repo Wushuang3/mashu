@@ -13,12 +13,12 @@ use PHPUnit\Util\Filter;
 use Throwable;
 
 /**
- * Wraps Exceptions thrown by code under test.
+ * Wraps Extensions thrown by code under test.
  *
- * Re-instantiates Exceptions thrown by user-space code to retain their original
+ * Re-instantiates Extensions thrown by user-space code to retain their original
  * class names, properties, and stack traces (but without arguments).
  *
- * Unlike PHPUnit\Framework_\Exception, the complete stack of previous Exceptions
+ * Unlike PHPUnit\Framework_\Exception, the complete stack of previous Extensions
  * is processed.
  *
  * @internal This class is not covered by the backward compatibility promise for PHPUnit

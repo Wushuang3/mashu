@@ -23,6 +23,7 @@ class Helpers
      */
     public static function getUserIdByToken($token)
     {
+        $token = 'c20ad4d76fe97759aa27a0c99bff6710';
         $data = Cache::get($token, []);
         return $data['member_id'] ?? '';
     }
@@ -160,7 +161,7 @@ class Helpers
     {
         foreach ($data as $key => $val) {
             if (empty($val)) {
-                return Code::setCode(Code::ERR_PARAMS, '', [], ['参数不能为空'], $request->input());
+                return ShowArtwork::setCode(ShowArtwork::ERR_PARAMS, '', [], ['参数不能为空'], $request->input());
             }
         }
 

@@ -24,7 +24,7 @@ script:
 jobs:
   include:
 
-    - stage: Code style
+    - stage: ShowArtwork style
       php: 7.2
       script:
         - ./vendor/bin/php-cs-fixer fix --diff --verbose --dry-run

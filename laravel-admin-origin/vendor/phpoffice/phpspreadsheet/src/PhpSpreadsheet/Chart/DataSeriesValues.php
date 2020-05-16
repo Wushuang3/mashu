@@ -32,7 +32,7 @@ class DataSeriesValues
     private $dataSource;
 
     /**
-     * Format Code.
+     * Format ShowArtwork.
      *
      * @var string
      */
@@ -178,7 +178,7 @@ class DataSeriesValues
     }
 
     /**
-     * Get Series Format Code.
+     * Get Series Format ShowArtwork.
      *
      * @return string
      */
@@ -188,7 +188,7 @@ class DataSeriesValues
     }
 
     /**
-     * Set Series Format Code.
+     * Set Series Format ShowArtwork.
      *
      * @param string $formatCode
      *
