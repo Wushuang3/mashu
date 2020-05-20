@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Support\Helpers;
 use Illuminate\Database\Eloquent\Model;
 use App\Libs\HttpClient;
 use Illuminate\Support\Facades\Cache;
@@ -51,8 +52,8 @@ class Member extends Model
 
         $res = HttpClient::get($api);
         $res = json_decode($res, true);
-        $res['openid'] =1;
-        $res['session_key'] =2;
+        //$res['openid'] =9;
+        //$res['session_key'] =9;
         if (isset($res['openid'])) {
             return $res;
         }
@@ -70,6 +71,7 @@ class Member extends Model
             return false;
         }
         $member = self::findManagerByOpenid($openid);
+        $token = md5($data['openid'] . $data['session_key']);
         if (!$member) {
             $member = self::createManager($openid);
             if (!$member) {
@@ -77,12 +79,22 @@ class Member extends Model
                 return false;
             }
             $log->action = '注册';
+            //向商城注册会员
+            $url = 'https://buy.zhishangez.com/service.php';
+            $register['action'] ='users_appletReg';
+            $register['com_id'] =1141;
+            $register['token'] =$token;
+            $register['openid'] =$data['openid'];
+            $register['session_key'] =$data['session_key'];
+            $res = Helpers::curl_post($url,$register);
+            Log::info('register:'.json_encode($res).' -- data:'.json_encode($register));
+            //var_dump($res);die;
         } else {
             $log->action = '登录';
         }
 
         $log->user_id = $member->id;
-        $token = md5($data['openid'] . $data['session_key']);
+
         Cache::forget($token);
         Cache::add($token, [
             'member_id' => $member->id,

@@ -134,7 +134,7 @@ class BookingController extends Controller
         $course_id = $request->input('course_id', 0);
         $level = $request->input('level', 0);
         $time = $request->input('time', 0);
-        $order_no= $request->input('order_no', 0);
+        $order_no = $request->input('order_no', 0);
         if (empty($teacher_id)) return Code::setCode(Code::ERR_TEACHER_ID, '教师ID错误', '', '');
         if (empty($user_id)) return Code::setCode(Code::ERR_USER_ID, '用户id错误', '', '');
         if (empty($time)) return Code::setCode(Code::ERR_TIME, '预约时间错误', '', '');
@@ -142,7 +142,7 @@ class BookingController extends Controller
         if (empty($mobile)) return Code::setCode(Code::ERR_MOBILE, '手机号错误', '', '');
         if (empty($course_id)) return Code::setCode(Code::ERR_COURSE_ID, '课程id错误', '', '');
         if (empty($level)) return Code::setCode(Code::ERR_TEACHER_LEVEL, '教师级别错误', '', '');
-        $data = self::createBooking($name, $user_id, $mobile, $comment, $teacher_id, $course_id, $level, $time,0,$order_no);
+        $data = self::createBooking($name, $user_id, $mobile, $comment, $teacher_id, $course_id, $level, $time, 0, $order_no);
         //return Code::setCode(Code::ERR_QUERY, '预约失败',"");
         return Code::setCode($data['code'], $data['msg']);
     }
@@ -187,7 +187,8 @@ class BookingController extends Controller
         $res = DB::select($sql);
 
         $teachers = Teacher::all()->toArray();
-        $names = Member::findManagerByTeacher();
+        //$names = Member::findManagerByTeacher();
+        //$teacher_user_id = Member::findManagerByTeacher();
         $levels = array_column($teachers, 'level', 'id');
         if ($res) {
             foreach ($res as $k => $v) {//var_dump($v);die;
@@ -197,7 +198,7 @@ class BookingController extends Controller
                 $res[$k]->teacher_id = $v->teacher;
                 $res[$k]->level = $levels[$v->teacher];
                 $res[$k]->course = Course::CourseMap()[$v->course];
-                $res[$k]->teacher = empty($v->teacher) ? '' : $names[$v->user_id];
+                $res[$k]->teacher = empty($v->teacher) ? '' : Member::findManagerByTeacherName($v->teacher);
                 $res[$k]->time = date('Y-m-d H:i:s', $v->time);
                 //status 1已上课 2待上课 3取消
                 $res[$k]->status = 1;
@@ -247,7 +248,7 @@ class BookingController extends Controller
                 }
             } else {
                 if (strtotime($res->time) > time()) {
-                    return Code::setCode(Code::ERR_CANCEL_BOOKING, '已到上课时间');
+                    return Code::setCode(Code::ERR_CANCEL_BOOKING, '未到上课时间');
                 }
             }
 
@@ -256,17 +257,17 @@ class BookingController extends Controller
                 return Code::setCode(Code::ERR_CANCEL_BOOKING, '提交失败');
             }
             //add course_id
-            $user = Member::where(['id'=>$user_id])->first();
-            if($res->course_id == 1){
-                $user->culture_num +=1;
+            $user = Member::where(['id' => $user_id])->first();
+            if ($res->course_id == 1) {
+                $user->culture_num += 1;
             }
-            if($res->course_id == 2){
-                $user->experience_num +=1;
+            if ($res->course_id == 2) {
+                $user->experience_num += 1;
             }
-            if($res->course_id == 3){
-                $user->official_num +=1;
+            if ($res->course_id == 3) {
+                $user->official_num += 1;
             }
-            if(!$user->save()){
+            if (!$user->save()) {
                 return Code::setCode(Code::ERR_ADD_COURSE, '增加课时失败');
             }
             return Code::setCode(Code::SUCC, '提交成功');
@@ -316,7 +317,7 @@ class BookingController extends Controller
             }
             $newTime = strtotime($class->time . ' ' . $newHour . ':00:00');
 
-            $data = self::createBooking($res->name, $user_id, $res->mobile, "", $res->teacher, $res->course, $level, $newTime, $class->num,$order_no);
+            $data = self::createBooking($res->name, $user_id, $res->mobile, "", $res->teacher, $res->course, $level, $newTime, $class->num, $order_no);
         }
         //echo 111;die;
         return Code::setCode($data['code'], $data['msg']);
@@ -327,7 +328,7 @@ class BookingController extends Controller
      * @param Request $request
      * @return array
      */
-    private static function createBooking($name, $user_id, $mobile, $comment = '', $teacher_id, $course_id, $level, $time, $num = 0,$order_no = "")
+    private static function createBooking($name, $user_id, $mobile, $comment = '', $teacher_id, $course_id, $level, $time, $num = 0, $order_no = "")
     {
         //报名总数限制
         if (empty($num)) {
@@ -427,8 +428,15 @@ class BookingController extends Controller
 
             //level  > 1
             if ($level > Teacher::TEACHER_ONE) {
-                $order = Order::where(['order_no'=>$order_no])->firsr();
-                if(empty($order) && $order->status !=1){
+                if(empty($order_no)){
+                    $data['code'] = Code::ERR_ORDER;
+                    $data['msg'] = '订单号不能为空';
+                    return $data;
+                }
+                //echo $order_no;die;
+                $order = Order::where(['order_no' => $order_no])->first();
+
+                if (!empty($order) && $order->status != 1) {
                     $data['code'] = Code::ERR_PAY;
                     $data['msg'] = '支付失败';
                     return $data;
@@ -598,24 +606,25 @@ class BookingController extends Controller
         foreach ($rating as $k => $v) {
             $num = $k;
             $score += $v->score;
-            if ($v->score > 3) {
+            if ($v->score/10 > 3) {
                 $good += 1;
             }
-            if ($v->score == 3) {
+            if ($v->score/10 == 3) {
                 $middle += 1;
             }
-            if ($v->score < 3) {
+            if ($v->score/10 < 3) {
                 $bad += 1;
             }
         }
 
+        $num = $num+1;
         $attention = Attention::where(['user_id' => $user_id, 'teacher_id' => $teacher_id, 'is_del' => 0])->first();
         $detail['score'] = empty($score) ? 0 : intval($score / $count) / 10;
         $detail['total'] = $num;
         $detail['price'] = $teacher->price;
-        $detail['good'] = empty($num) ? 0 : $good / $num;
-        $detail['middle'] = empty($num) ? 0 : $middle / $num;
-        $detail['bad'] = empty($num) ? 0 : $bad / $num;
+        $detail['good'] = empty($num) ? 0 : round($good / $num *100);
+        $detail['middle'] = empty($num) ? 0 : intval($middle / $num *100);
+        $detail['bad'] = empty($num) ? 0 : intval($bad / $num *100);
         $detail['head_icon'] = env('APP_URL') . '/storage/' . $detail["head_icon"];
         $detail['is_attention'] = empty($attention) ? 1 : 0;
 
@@ -945,6 +954,7 @@ class BookingController extends Controller
         $user_id = Helpers::getUserIdByToken($token);
         if (empty($user_id)) return Code::setCode(Code::TOKEN_ERROR, 'token验证失败', '', '');
         $course = Course::where(['id' => $course_id])->first();
+        $course->price = $course->price /100;
         $course->image = env('APP_URL') . '/storage/' . $course->image;
         $course->totle = Order::where(['course_id' => $course_id])->count();
 
@@ -988,6 +998,7 @@ class BookingController extends Controller
         return Code::setCode(Code::SUCC, '成功', $horse);
 
     }
+
     /**
      * TODO 场馆展示
      * @param Request $request
@@ -996,17 +1007,18 @@ class BookingController extends Controller
     public function getPages(Request $request)
     {
         $token = $request->input('token');
-        $id  = $request->input('page_id');
+        $id = $request->input('page_id');
         if (empty($id)) return Code::setCode(Code::ERR_PAGE, 'page id is null', '', '');
         $user_id = Helpers::getUserIdByToken($token);
         if (empty($user_id)) return Code::setCode(Code::TOKEN_ERROR, 'token验证失败', '', '');
-        $page = Page::where(['id'=>$id])->first();
-        if($page){
+        $page = Page::where(['id' => $id])->first();
+        if ($page) {
             $page->images = env('APP_URL') . '/storage/' . $page->images;
         }
         return Code::setCode(Code::SUCC, '成功', $page);
 
     }
+
     /**
      * TODO 马匹详情
      * @param Request $request
@@ -1015,12 +1027,12 @@ class BookingController extends Controller
     public function getHorseDetail(Request $request)
     {
         $token = $request->input('token');
-        $id  = $request->input('horse_id');
+        $id = $request->input('horse_id');
         if (empty($id)) return Code::setCode(Code::ERR_PAGE, 'horse_id is null', '', '');
         $user_id = Helpers::getUserIdByToken($token);
         if (empty($user_id)) return Code::setCode(Code::TOKEN_ERROR, 'token验证失败', '', '');
-        $horse = Horse::where(['id'=>$id])->first();
-        if($horse){
+        $horse = Horse::where(['id' => $id])->first();
+        if ($horse) {
             $horse->images = env('APP_URL') . '/storage/' . $horse->images;
         }
 
@@ -1038,14 +1050,14 @@ class BookingController extends Controller
         $token = $request->input('token');
         $user_id = Helpers::getUserIdByToken($token);
         if (empty($user_id)) return Code::setCode(Code::TOKEN_ERROR, 'token验证失败', '', '');
-        $order = Order::where(['user_id'=>$user_id]);
-        $order = $order->where('course_id','>',0)->get();
+        $order = Order::where(['user_id' => $user_id]);
+        $order = $order->where('course_id', '>', 0)->get();
         $data = array();
-        foreach ($order as $k=>$v){
-            $course = Course::where(['id'=>$v->course_id])->first();
+        foreach ($order as $k => $v) {
+            $course = Course::where(['id' => $v->course_id])->first();
             $data[$k]['title'] = $course->title;
             $data[$k]['valid_time'] = $course->valid_time;
-            $data[$k]['hour'] = $course->culture_num.'节文化课'.$course->experience_num.'节体验课'.$course->official_num.'节正式课';
+            $data[$k]['hour'] = $course->culture_num . '节文化课' . $course->experience_num . '节体验课' . $course->official_num . '节正式课';
             $data[$k]['price'] = $v->price;
             $data[$k]['created_at'] = $v->created_at;
             $data[$k]['status'] = $v->status;
@@ -1092,8 +1104,8 @@ class BookingController extends Controller
             $price = $teacher->price;
             $body = '预约教练';
             $order->teacher_id = $teacher_id;
+            $order->type = 1;
         }
-
 
 
         $order->price = $price;
@@ -1102,9 +1114,13 @@ class BookingController extends Controller
         if ($order->save()) {
             //pay
             $user = Member::where(['id' => $user_id])->first();
-            $res = Helpers::wxPay($user->open_id, $order->price, $order->order_no,$body);
+            $res = Helpers::wxPay($user->open_id, $order->price, $order->order_no, $body);
             if ($res) {
-                return Code::setCode(Code::SUCC, '下单成功', $res);
+                $data = array();
+                $data['order_no'] =  $order->order_no;
+                $data['res'] =  $res;
+
+                return Code::setCode(Code::SUCC, '下单成功', $data);
             }
         }
         return Code::setCode(Code::ERR_ORDER, '下单失败');
@@ -1124,12 +1140,12 @@ class BookingController extends Controller
         unset($post_data['sign']);
         ksort($post_data);// 对数据进行排序
         $str = $params = http_build_query($post_data);//对数组数据拼接成key=value字符串
-        $user_sign = strtoupper(md5($str . "&key=" . getenv('WX_KEY')));   //再次生成签名，与$postSign比较
+      //  $user_sign = strtoupper(md5($str . "&key=" . getenv('WX_KEY')));   //再次生成签名，与$postSign比较
         //$user_sign = '17BEF985A5CB7364FC11A7B495AE61F6';   //再次生成签名，与$postSign比较
         $ordernumber = $post_data['out_trade_no'];// 订单可以查看一下数据库是否有这个订单
-
-        if ($post_data['return_code'] == 'SUCCESS' && $postSign == $user_sign) {
-
+        Log::info('wxPay : aaa ,order_no:' . $ordernumber);
+        if ($post_data['return_code'] == 'SUCCESS') {
+           // Log::info('wxPay : 2222 ,order_no:' . $ordernumber.'sign1'.$postSign.'sign2:'.$user_sign);
             // 查询订单是否已经支付(通过订单号调取微信的查询订单的接口)
             //如果已经支付 更改数据库中的 支付状态 并写入日志表
             $order = Order::where(['order_no' => $ordernumber])->first();
@@ -1141,27 +1157,27 @@ class BookingController extends Controller
                 if ($order->save()) {
                     Log::info('wxPay : success ,order_no:' . $ordernumber);
                     //add course_id
-                    if($order->course_id){
-                        $course = Course::where(['id'=>$order->course_id])->first();
-                        if($course){
-                            $user = Member::where(['id'=>$order->user_id])->first();
-                            if($user){
+                    if ($order->course_id) {
+                        $course = Course::where(['id' => $order->course_id])->first();
+                        if ($course) {
+                            $user = Member::where(['id' => $order->user_id])->first();
+                            if ($user) {
                                 $user->culture_num += $course->culture_num;
                                 $user->experience_num += $course->experience_num;
                                 $user->official_num += $course->official_num;
-                                if($user->save()){
-                                    Log::info('增加课时成功,user_id:' . $order->user_id.'课程id:'.$order->course_id);
-                                }else{
-                                    Log::error('增加课时失败,user_id:' . $order->user_id.'课程id:'.$order->course_id);
+                                if ($user->save()) {
+                                    Log::info('增加课时成功,user_id:' . $order->user_id . '课程id:' . $order->course_id);
+                                } else {
+                                    Log::error('增加课时失败,user_id:' . $order->user_id . '课程id:' . $order->course_id);
                                 }
-                            }else{
+                            } else {
                                 Log::error('查询用户失败,user_id:' . $order->user_id);
                             }
-                        }else{
+                        } else {
                             Log::error('课程查询失败,course_id:' . $order->course_id);
                         }
                     }
-                }else{
+                } else {
                     Log::error('保存订单状态失败,order_no:' . $ordernumber);
                 }
             } else {
