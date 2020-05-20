@@ -43,4 +43,11 @@ class Teacher extends Model
         $first_names = array_column($teachers, 'user_id','id');
         return $first_names;
     }
+
+    public static function GetMobile()
+    {
+        $teachers= Teacher::all()->toArray();
+        $first_names = array_column($teachers, 'mobile','id');
+        return $first_names;
+    }
 }

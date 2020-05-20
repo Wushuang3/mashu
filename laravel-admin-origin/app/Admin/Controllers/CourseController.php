@@ -35,6 +35,7 @@ class CourseController extends AdminController
         //$grid->column('buy', __('购买须知'));
         //$grid->column('notice', __('注意须知'));
         $grid->column('price', __('金额'));
+        $grid->column('valid_time', __('有效时间'));
         $grid->column('culture_num', __('文化课时'));
         $grid->column('experience_num', __('体验课时'));
         $grid->column('official_num', __('正式课时'));
@@ -63,6 +64,7 @@ class CourseController extends AdminController
         $show->field('buy', __('购买须知'));
         $show->field('notice', __('注意须知'));
         $show->field('price', __('金额'));
+        $show->field('valid_time', __('有效时间'));
         $show->field('culture_num', __('文化课时'));
         $show->field('experience_num', __('体验课时'));
         $show->field('official_num', __('正式课时'));
@@ -89,6 +91,7 @@ class CourseController extends AdminController
         $form->textarea('buy', __('购买须知'));
         $form->textarea('notice', __('注意须知'));
         $form->number('price', __('金额'));
+        $form->text('valid_time', __('有效时间'));
         $form->number('culture_num', __('文化课时'));
         $form->number('experience_num', __('体验课时'));
         $form->number('official_num', __('正式课时'));

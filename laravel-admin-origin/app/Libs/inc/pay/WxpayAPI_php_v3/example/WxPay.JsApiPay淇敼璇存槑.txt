@@ -1,0 +1,1 @@
+修改72行，throw new WxPayException("参数错误");

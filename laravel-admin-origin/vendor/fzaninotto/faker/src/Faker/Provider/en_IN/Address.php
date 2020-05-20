@@ -28,7 +28,7 @@ class Address extends \Faker\Provider\Address
     );
 
     protected static $state = array(
-        
+
         // States
         'Andhra Pradesh', 'Arunachal Pradesh', 'Assam',
         'Bihar',
@@ -47,7 +47,7 @@ class Address extends \Faker\Provider\Address
         'Tamil Nadu', 'Telangana', 'Tripura',
         'Uttar Pradesh', 'Uttarakhand',
         'West Bengal',
-        
+
         // Union Territories
         'Andaman and Nicobar Islands',
         'Chandigarh',
@@ -72,7 +72,7 @@ class Address extends \Faker\Provider\Address
         'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Isle of Man', 'Israel', 'Italy',
         'Jamaica', 'Japan', 'Jersey', 'Jordan',
         'Kazakhstan', 'Kenya', 'Kiribati', 'Korea', 'Korea', 'Kuwait', 'Kyrgyz Republic',
-        'Lao People\'s Democratic Republic', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libyan Arab Jamahiriya', 'Liechtenstein', 'Lithuania', 'Luxembourg',
+        'Lao Map\'s Democratic Republic', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libyan Arab Jamahiriya', 'Liechtenstein', 'Lithuania', 'Luxembourg',
         'Macao', 'Macedonia', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Martinique', 'Mauritania', 'Mauritius', 'Mayotte', 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Montserrat', 'Morocco', 'Mozambique', 'Myanmar',
         'Namibia', 'Nauru', 'Nepal', 'Netherlands Antilles', 'Netherlands', 'New Caledonia', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Niue', 'Norfolk Island', 'Northern Mariana Islands', 'Norway',
         'Oman',
@@ -120,7 +120,7 @@ class Address extends \Faker\Provider\Address
         '{{firstName}} {{societySuffix}}'
     );
     protected static $streetAddressFormats = array(
-        
+
         '{{buildingNumber}}, {{locality}},',
         '{{buildingNumber}}, {{societyName}}, {{locality}}',
     );

@@ -17,6 +17,11 @@ Route::group([
     $router->resource('members', MemberController::class);
     $router->resource('bookings', BookingController::class);
     $router->resource('set-classes', SetClassController::class);
+    $router->resource('orders', OrderController::class);
+    $router->resource('slides', SlideController::class);
+    $router->resource('horses', HorseController::class);
+    $router->resource('pages', PageController::class);
+
 
 
 

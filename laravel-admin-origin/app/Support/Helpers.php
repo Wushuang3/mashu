@@ -4,6 +4,7 @@
 namespace App\Support;
 
 use App\Libs\HttpClient;
+use App\Libs\WeixinPay;
 use App\Models\Manager;
 use App\Models\ManagerRel;
 use App\Models\VillageHouse;
@@ -11,6 +12,7 @@ use App\Models\VillageHouseManagerRel;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 
 class Helpers
@@ -23,7 +25,7 @@ class Helpers
      */
     public static function getUserIdByToken($token)
     {
-        $token = 'c20ad4d76fe97759aa27a0c99bff6710';
+        //$token = 'e4942c403ebf32ea4c469b64a7b27f65';
         $data = Cache::get($token, []);
         return $data['member_id'] ?? '';
     }
@@ -61,6 +63,7 @@ class Helpers
             $fileName = date('Y_m_d');
 
             $res = Storage::disk($disk)->put($fileName, $file);
+
             if (!$res) {
                 return '';
             }
@@ -166,5 +169,35 @@ class Helpers
         }
 
         return false;
+    }
+
+    /**
+     * 小程序支付
+     * @param $second
+     * @param string $format
+     * @return string
+     */
+    public static function wxPay($openid,$price,$orderCode,$body="购买套餐")
+    {
+        if (!$price) {
+            Log::error('wxPay : price is null');
+            return false;
+        }
+        if (!$openid) {
+            Log::error('wxPay : openid is null');
+            return false;
+        }
+        if (!$orderCode) {
+            Log::error('wxPay : orderCode is null');
+            return false;
+        }
+
+        $appid=env('WX_APPID'); //小程序appid
+        $mch_id=env('WX_MCH_ID'); //微信支付商户支付号
+        $key=env('WX_KEY'); //Api密钥
+
+        $weixinpay = new WeixinPay($appid,$openid,$mch_id,$key,$orderCode,$body,$price);
+        $return=$weixinpay->pay();
+        return json_encode($return);
     }
 }

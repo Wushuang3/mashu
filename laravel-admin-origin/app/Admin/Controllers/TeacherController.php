@@ -28,7 +28,7 @@ class TeacherController extends AdminController
         $grid = new Grid(new Teacher());
         $grid->column('id', __('Id'));
         $grid->column('user_id', __('姓名'))->using(Member::findManagerByTeacher());
-        //$grid->column('name', __('姓名'));
+        //$grid->column('mobile', __('手机号'));
         $grid->column('level', __('级别'))->using(Teacher::CourseMap());
         $grid->column('price', __('金额'));
         $grid->column('head_icon', __('头像'))->image("",50,50);
@@ -52,7 +52,7 @@ class TeacherController extends AdminController
         $show->field('id', __('Id'));
         //$show->field('user_id', __('姓名'));
         $show->field('user_id', __('姓名'))->using(Member::findManagerByTeacher());
-        //$show->field('name', __('姓名'));
+        //$show->field('mobile', __('手机号'));
         $show->field('price', __('金额'));
         $show->field('level', __('级别'))->using(Teacher::CourseMap());
         $show->field('head_icon', __('头像'))->image();
@@ -77,6 +77,7 @@ class TeacherController extends AdminController
         $form->select('user_id', __('姓名'))->options(Member::findManagerByTeacher());
        // $form->text('name', __('姓名'));
         $form->select('level', __('级别'))->options(Teacher::CourseMap());
+        //$form->number('mobile', __('手机号'));
         $form->number('price', __('金额'));
         $form->textarea('description', __('描述'));
         $form->image('head_icon', __('头像'));

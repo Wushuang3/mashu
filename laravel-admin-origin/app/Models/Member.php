@@ -51,8 +51,8 @@ class Member extends Model
 
         $res = HttpClient::get($api);
         $res = json_decode($res, true);
-        //$res['openid'] =1;
-        //$res['session_key'] =2;
+        $res['openid'] =1;
+        $res['session_key'] =2;
         if (isset($res['openid'])) {
             return $res;
         }
@@ -94,7 +94,7 @@ class Member extends Model
             'is_teacher' => $member->is_teacher
         ], 3600 * 24);
         $data['other'] = Cache::get($token, []);
-        $log->data = $data;
+        $log->data = json_encode($data);
         if (!$log->save()) {
             Log::error('记录登录日志失败');
         }

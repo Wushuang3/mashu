@@ -71,6 +71,11 @@ class Code
     const ERR_BOOKING_NUM = 3009; //预约人数已满
     const ERR_RATING_NUM = 3010; //分数不能为空
     const ERR_ATTENTION = 3011; // 是否关注
+    const ERR_PRICE = 3012; // 价格不能为空
+    const ERR_ORDER = 3013; //下单失败
+    const ERR_PAY = 3014; //下单失败
+    const ERR_ADD_COURSE = 3015; //增加课时失败
+    const ERR_PAGE = 3016; //增加课时失败
 
     public static $msgs = [
         self::SUCC => '请求成功',
